@@ -1,2 +1,8 @@
-Welcome to awsome frisbee hat tourament
-<a href="{% url 'registration:register' %}">Register</a>
+{% extends "registration/base.html" %}
+
+{% block content %}
+<div id="hello">
+<h2>Ultimate Frisbee Hat Tournament Signup</h2>
+<h3><a href="{% url 'registration:register' %}">Register</a></h3>
+</div>
+{% endblock %}

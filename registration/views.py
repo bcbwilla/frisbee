@@ -20,7 +20,7 @@ def register(request):
                 setattr(player, k, v)
 
             player.save()
-            return HttpResponseRedirect('frisbee/thanks')
+            return HttpResponseRedirect('thanks')
     else:
         form = PlayerForm()
 
