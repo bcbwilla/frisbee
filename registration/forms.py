@@ -5,4 +5,4 @@ class PlayerForm(ModelForm):
     class Meta:
         model = Player
         fields = ['first_name','last_name','email','phone_number',
-            'gender','skill','wants_shirt','wants_frisbee','shirt_size','position']
+            'gender','skill','want_shirt','want_frisbee','shirt_size','position']

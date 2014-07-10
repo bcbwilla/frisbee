@@ -1,0 +1,10 @@
+<div class="form-group">
+    {{ field.errors }}
+    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+    <select class="form-control" id="{{ field.id_for_label }}" name="{{ field.html_name }}">
+        <option value=""></option>
+        {% for choice in field.field.choices|slice:"1:" %}
+        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+        {% endfor %}
+    </select>
+</div>

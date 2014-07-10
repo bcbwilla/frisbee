@@ -1,8 +1,11 @@
 {% extends "registration/base.html" %}
 
 {% block content %}
-<div id="hello">
-<h2>Ultimate Frisbee Hat Tournament Signup</h2>
-<h3><a href="{% url 'registration:register' %}">Register</a></h3>
+
+<div class="jumbotron">
+  <h1>Yeah Frisbee</h1>
+  <p class="lead">Join us for an ultimate frisbee hat tournament!</p>
+  <p><a class="btn btn-lg btn-success" href="{% url 'registration:register' %}" role="button">Sign up today</a></p>
 </div>
+
 {% endblock %}

@@ -33,9 +33,8 @@ class Player(models.Model):
     phone_number = models.CharField(max_length=30)
     gender = models.CharField(choices=GENDER_CHOICES,max_length=1)
     skill = models.IntegerField(choices=SKILL_CHOICES)
-    wants_shirt = models.BooleanField()
-    wants_frisbee = models.BooleanField()
-#    buy_options = models.CharField(max_length=1,default=None)
+    want_shirt = models.BooleanField()
+    want_frisbee = models.BooleanField()
     shirt_size = models.CharField(choices=SHIRT_SIZE_CHOICES,max_length=1)
     position = models.CharField(choices=POSITION_CHOICES,max_length=3)
 

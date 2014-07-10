@@ -1,11 +1,43 @@
 {% extends "registration/base.html" %}
+{% load registration_extras %}
 
 {% block content %}
-<div id="register">
-  <h2>Register</h2>
-  <form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" />
-  </form>
-</div>
+
+<div class="row marketing">
+  <div class="form well col-md-6 col-md-offset-3">
+
+    <h2>Register</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {# Do the "nicely behaved" type of form elements #}
+        {% for field in form %}
+        {% with field_type=field|field_type %}
+        {% if field_type == "text" or field_type == "email" %}
+        <div class="form-group">
+            {{ field.errors }}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            <!--<div class="controls">{{ field }}</div>-->
+            <input id="{{ field.id_for_label }}" class="form-control" name="{{ field.html_name }}" type="{{ field|field_type }}" />
+        </div>
+        {% endif %}
+        {% endwith %}
+        {% endfor %}
+
+        {# Do the rest that need special formatting #}
+        {% include "registration/form_choice.html" with field=form.gender %}
+        {% include "registration/form_choice.html" with field=form.skill %}
+
+        {% include "registration/form_checkbox.html" with field=form.want_shirt label_msg="I would like a t-shirt" %}
+        {% include "registration/form_checkbox.html" with field=form.want_frisbee label_msg="I would like a frisbee" %}
+
+        {% include "registration/form_choice.html" with field=form.shirt_size %}
+        {% include "registration/form_choice.html" with field=form.position %}
+        <input class="btn btn-info" type="submit" value="Submit" />
+    </form>
+
+  </div>
+</div> <!-- row marketing -->
+
 {% endblock %}
